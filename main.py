@@ -12,5 +12,6 @@ while True:
         print("FUNÇÃO 2")
     elif entrada == 3:
         print("FUNÇÃO 3")
-
+    else:
+        print("Comando não encontrado, utilize uma entrada válida.")
     
