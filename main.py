@@ -1,6 +1,59 @@
 import math
 
-print("Autores do projeto: Giovanna Mendes, Guilherme Meireles, Ranielly Affonso e Natasha Almeida.")
+print("--------------------------- Autores do projeto ---------------------------")
+print("Giovanna Mendes, Guilherme Meireles, Ranielly Affonso e Natasha Almeida.")
+print("\nO programa foi criado para calcular as propriedades relacionadas às ondas eletromagnéticas,"
+      "\nde acordo com os conceitos estudados em Física Moderna.\n"
+      "O software permite que o usuário insira alguns parâmetros como comprimento de onda, frequência, campos magnéticos,"
+      "número de onda e intensidade.\n")
+
+print("Conceitos utilizados no programa:\n")
+
+print("1. Comprimento de Onda:\n"
+      "Representa a distância que as ondas se propagam no vácuo. O programa solicita o comprimento da onda e calcula"
+      " a frequência, o número de onda e a frequência angular usando as seguintes fórmulas:\n"
+      "   - Frequência: f = c / λ\n"
+      "   - Número de Onda: k = 2π / λ\n"
+      "   - Frequência Angular: w = 2πf\n")
+
+print("2. Frequência:\n"
+      "Indica quantos ciclos de uma onda passam por um ponto em um período de tempo. O programa solicita a frequência"
+      " da onda e calcula o comprimento da onda, o número de onda e a frequência angular usando as fórmulas:\n"
+      "   - Comprimento de Onda: λ = c / f\n"
+      "   - Número de Onda: k = 2π / λ\n"
+      "   - Frequência Angular: w = 2πf\n")
+
+print("3. Frequência Angular:\n"
+      "É a velocidade com que a onda oscila em radianos por segundo. O programa solicita a frequência angular e"
+      " calcula a frequência, o comprimento e o número da onda usando as seguintes fórmulas:\n"
+      "   - Frequência: f = w / 2π\n"
+      "   - Comprimento de Onda: λ = c / f\n"
+      "   - Número de Onda: k = 2π / λ\n")
+
+print("4. Número de Onda:\n"
+      "Calcula quantas ondas existem por metro. O programa solicita o número de onda e calcula o comprimento, a"
+      " frequência e a frequência angular usando as fórmulas:\n"
+      "   - Comprimento de Onda: λ = 2π / k\n"
+      "   - Frequência: f = c / λ\n"
+      "   - Frequência Angular: w = 2πf\n")
+
+print("5. Campo Magnético:\n"
+      "É uma região do espaço onde uma carga elétrica em movimento, como uma corrente elétrica, experimenta uma força."
+      " O programa solicita o campo magnético e calcula o campo elétrico e a intensidade da onda usando as fórmulas:\n"
+      "   - Campo Elétrico: E = B * c\n"
+      "   - Intensidade: I = E² / (2 * μ₀ * c)\n")
+
+print("6. Campo Elétrico:\n"
+      "Calcula o campo magnético e a intensidade da onda a partir do campo elétrico fornecido pelo usuário. As fórmulas"
+      " usadas são:\n"
+      "   - Campo Magnético: B = E / c\n"
+      "   - Intensidade: I = E² / (2 * μ₀ * c)\n")
+
+print("7. Intensidade da Onda:\n"
+      "É a medida da energia transportada pela onda por unidade de área e tempo. O programa solicita a intensidade da onda"
+      " e calcula o campo elétrico e magnético usando as fórmulas:\n"
+      "   - Campo Elétrico: E = sqrt(2 * μ₀ * c * I)\n"
+      "   - Campo Magnético: B = E / c\n")
 
 # variável c
 velocidade_luz = 3e+08
@@ -47,6 +100,7 @@ def calcula_intensidade_onda(intensidade_onda):
     return campo_eletrico, campo_magnetico
 
 while True:
+    print("---------- MENU ----------")
     print("1. Comprimento de onda (y)")
     print("2. Frequência (f)")
     print("3. Frequência angular (w)")
@@ -104,6 +158,7 @@ while True:
         print(f"Campo elétrico: {campo_eletrico:.3e} V/m\n")
 
     elif entrada == 0:
+        print("---Obrigado por utilizar o nosso software. Até a próxima :)")
         break
          
     else:
