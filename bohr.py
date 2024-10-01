@@ -9,7 +9,7 @@ massa = 9.11e-31
 def calcular_raio(numero_quantico):
     raio = (numero_quantico**2) * 5.29e-11  # m
     velocidade = 2.187e+06 / numero_quantico  # m/s
-    comprimento_onda = h_js / (e * velocidade)  # m     ESTA DANDO ERROOOOOOOOOOOOOOOOOO
+    comprimento_onda = h_js / (massa * velocidade)  # m     ESTA DANDO ERROOOOOOOOOOOOOOOOOO
     energia_cinetica = 13.6 / (numero_quantico**2)  # 
     energia_potencial = -27.2 / (numero_quantico**2)  # energia potencial
     energia_total = -13.6 / (numero_quantico**2)  # energia total
