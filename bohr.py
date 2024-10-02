@@ -6,6 +6,16 @@ c = 3e+08
 e = 1.602e-19  # Carga do elétron em Coulombs
 massa = 9.11e-31
 
+print("-------------------- AUTORES DO PROJETO --------------------")
+print("Giovanna Mendes, Guilherme Meireles, Ranielly Affonso e Natasha Almeida")
+print("O projeto foi criado para calcular as propriedades relacionadas ao átomo de Bohr.\n"
+      "O software permite que o usuário insira alguns parâmetros como raio, velocidade, comprimento,\n"
+      "energias e frequência")
+
+print("Conceitos utilizados no programa: \n")
+
+
+
 def calcular_raio(numero_quantico):
     raio = (numero_quantico**2) * 5.29e-11  # m
     velocidade = 2.187e+06 / numero_quantico  # m/s
@@ -35,6 +45,7 @@ def calcular_n_inicial(n_final, opcao, variavel):
     return int(n_final)
 
 
+print("----------------MENU---------------")
 while True:
     print("1. Número quântico (n)")
     print("2. Número quântico inicial (ni) e final (nf): ")
@@ -78,7 +89,13 @@ while True:
         print(f"\nNúmero quântico final: {n_inicial}")
          
 
-
+    elif entrada == 5:
+        opcao = int(input("Digite 1 para inserir a Frequência e 2 para inserir o Comprimento de onda: "))
+        if opcao == 1:
+            variavel = float(input("Digite o valor da frequência em Hz: "))
+        elif opcao == 2:
+            variavel = float(input("Digite o valor do comprimento de onda em metros: "))
+        
 
 
 
