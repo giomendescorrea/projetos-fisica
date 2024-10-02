@@ -19,10 +19,10 @@ print("Conceitos utilizados no programa: \n")
 def calcular_raio(numero_quantico):
     raio = (numero_quantico**2) * 5.29e-11  # m
     velocidade = 2.187e+06 / numero_quantico  # m/s
-    comprimento_onda = h_js / (massa * velocidade)  # m     ESTA DANDO ERROOOOOOOOOOOOOOOOOO
+    comprimento_onda = h_js / (massa * velocidade)  #m ESTA DANDO ERROOOOOOOOOOOOOOOOOO
     energia_cinetica = 13.6 / (numero_quantico**2)  # 
-    energia_potencial = -27.2 / (numero_quantico**2)  # energia potencial
-    energia_total = -13.6 / (numero_quantico**2)  # energia total
+    energia_potencial = -27.2 / (numero_quantico**2)  #energia potencial
+    energia_total = -13.6 / (numero_quantico**2)  #energia total
 
     return raio, velocidade, comprimento_onda, energia_cinetica, energia_potencial, energia_total
 
@@ -38,15 +38,16 @@ def calcular_n_final_inicial(n_final, n_inicial):
 def calcular_n_inicial(n_final, opcao, variavel):
     if opcao == 1:
         energia_foton = h_js * variavel
-    elif variavel == 2:
+    elif opcao == 2:
         frequencia = h_js / variavel
         energia_foton = h_js * frequencia
     n_final = math.sqrt((e**4) / (2 * h_js * energia_foton))
     return int(n_final)
 
 
-print("----------------MENU---------------")
+
 while True:
+    print("----------------MENU----------------")
     print("1. Número quântico (n)")
     print("2. Número quântico inicial (ni) e final (nf): ")
     print("3. Número quântico INICIAL (ni) e frequência (f) ou comprimento de onda (y) emitido: ")
@@ -79,6 +80,30 @@ while True:
         print(f"\nFrequência: {(frequencia/1e+12):.3e} em THz")
         
     elif entrada == 3:
+        finOuIn = int(input("Deseja entrar com n-inicial(1) ou n-final(2)?"))
+        if finOuIn == 1:
+            n_inicial = float(input("Digite o valor do número quântico inicial: "))
+            opcao = int(input("Digite 1 para inserir a Frequência e 2 para inserir Comprimento de onda: "))
+            if opcao == 1:
+                variavel = float(input("Digite o valor da frequência em Hz: "))
+            elif opcao == 2:
+                variavel = float(input("Digite o valor do comprimento de onda em metros: "))
+            n_inicial = calcular_n_inicial(n_final, opcao, variavel)
+            print(f"\nNúmero quântico final: {n_inicial}")
+
+        elif finOuIn == 2:
+            n_final = float(input("Digite o valor do número quântico final: "))
+            opcao = int(input("Digite 1 para inserir a Frequência e 2 para inserir Comprimento de onda: "))
+            if opcao == 1:
+                variavel = float(input("Digite o valor da frequência em Hz: "))
+            elif opcao == 2:
+                variavel = float(input("Digite o valor do comprimento de onda em metros: "))
+            n_inicial = calcular_n_inicial(n_final, opcao, variavel)
+            print(f"\nNúmero quântico final: {n_final}")
+
+        
+         
+    elif entrada == 4:
         n_final = float(input("Digite o valor do número quântico final: "))
         opcao = int(input("Digite 1 para inserir a Frequência e 2 para inserir Comprimento de onda: "))
         if opcao == 1:
@@ -87,7 +112,7 @@ while True:
             variavel = float(input("Digite o valor do comprimento de onda em metros: "))
         n_inicial = calcular_n_inicial(n_final, opcao, variavel)
         print(f"\nNúmero quântico final: {n_inicial}")
-         
+
 
     elif entrada == 5:
         opcao = int(input("Digite 1 para inserir a Frequência e 2 para inserir o Comprimento de onda: "))
