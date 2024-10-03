@@ -73,11 +73,12 @@ def main():
 
     print("-------------------- AUTORES DO PROJETO --------------------")
     print("Giovanna Mendes, Guilherme Meireles, Ranielly Affonso e Natasha Almeida")
+    print("Conceitos utilizados no programa: \n")
     print("O projeto foi criado para calcular as propriedades relacionadas ao átomo de Bohr.\n"
       "O software permite que o usuário insira alguns parâmetros como raio, velocidade, comprimento,\n"
       "energias e frequência")
 
-    print("Conceitos utilizados no programa: \n")
+    
 
     while True:
         menu()
