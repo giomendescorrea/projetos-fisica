@@ -1,0 +1,99 @@
+import numpy as np
+
+# Constantes
+h = 6.626e-34  # Constante de Planck (J.s)
+c = 3e8        # Velocidade da luz (m/s)
+e = 1.602e-19  # Carga do elétron (C)
+ε0 = 8.85e-12  # Permissividade do vácuo (F/m)
+
+# Função para calcular a velocidade do elétron no átomo de hidrogênio
+def velocidade_eletron(n):
+    v = 2.18e6 * (1/n)  # Velocidade em m/s
+    return v
+
+# Função para calcular a menor frequência da série Pfund do átomo de hidrogênio
+def menor_frequencia_pfund():
+    n1 = 5  # nível final da série Pfund
+    n2 = 6  # nível inicial da série Pfund
+    E_n1 = -13.6 / (n1**2)  # Energia do nível final
+    E_n2 = -13.6 / (n2**2)  # Energia do nível inicial
+    ΔE = E_n2 - E_n1  # Diferença de energia
+    f = ΔE * e / h  # Frequência em Hz
+    return f
+
+# Função para calcular o comprimento de onda do fóton emitido a partir de um nível escolhido n
+def comprimento_onda_emitido(n):
+    # Cálculo da energia da transição
+    E_n = -13.6 / (n**2)  # Energia em eV
+    λ_emitido = h * c / (E_n * e)  # Comprimento de onda (m)
+    return λ_emitido
+
+# Função para calcular o comprimento de onda do fóton absorvido
+def comprimento_onda_absorvido(n1, n2):
+    # Energia do nível n1 e n2
+    E_n1 = -13.6 / (n1**2)  # Energia do nível inferior
+    E_n2 = -13.6 / (n2**2)  # Energia do nível superior
+    ΔE = E_n2 - E_n1  # Diferença de energia
+    λ_absorvido = h * c / (ΔE * e)  # Comprimento de onda (m)
+    return λ_absorvido
+
+# Função para calcular o campo elétrico da onda
+def campo_eletromagnetico(onda):
+    # Fórmula para o campo elétrico (Em) de uma onda eletromagnética
+    E_m = np.sqrt(2 * (onda / ε0))  # Campo elétrico (V/m)
+    return E_m
+
+# Função para calcular o campo magnético da onda
+def campo_magnetico(onda):
+    # Fórmula para o campo magnético (Bm) de uma onda eletromagnética
+    B_m = onda / c  # Campo magnético (T)
+    return B_m
+
+# Interação com o usuário
+while True:
+    print("Escolha uma opção:")
+    print("1. Velocidade do elétron no átomo de hidrogênio")
+    print("2. Menor frequência da série Pfund do átomo de hidrogênio")
+    print("3. Comprimento de onda do fóton emitido a partir do nível n")
+    print("4. Comprimento de onda do fóton absorvido entre n1 e n2")
+    print("5. Campo elétrico da onda")
+    print("6. Campo magnético da onda")
+    print("7. Sair")
+
+    escolha = input("Digite o número da opção: ")
+
+    if escolha == '1':
+        n = int(input("Digite o nível n: "))
+        v = velocidade_eletron(n)
+        print(f"Velocidade do elétron (m/s): {v:.2e}")
+
+    elif escolha == '2':
+        f = menor_frequencia_pfund()
+        print(f"Menor frequência da série Pfund (Hz): {f:.2e}")
+
+    elif escolha == '3':
+        n = int(input("Digite o nível n: "))
+        λ_emitido = comprimento_onda_emitido(n)
+        print(f"Comprimento de onda emitido (m): {λ_emitido:.2e}")
+
+    elif escolha == '4':
+        n1 = int(input("Digite o nível n1 (inferior): "))
+        n2 = int(input("Digite o nível n2 (superior): "))
+        λ_absorvido = comprimento_onda_absorvido(n1, n2)
+        print(f"Comprimento de onda absorvido (m): {λ_absorvido:.2e}")
+
+    elif escolha == '5':
+        onda = float(input("Digite a intensidade da onda (W/m²): "))
+        E_m = campo_eletromagnetico(onda)
+        print(f"Campo elétrico da onda (V/m): {E_m:.2f}")
+
+    elif escolha == '6':
+        onda = float(input("Digite a intensidade da onda (W/m²): "))
+        B_m = campo_magnetico(onda)
+        print(f"Campo magnético da onda (T): {B_m:.2e}")
+
+    elif escolha == '7':
+        break
+
+    else:
+        print("Opção inválida. Tente novamente.")
